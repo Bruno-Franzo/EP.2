@@ -75,3 +75,18 @@ def afundados(frota,tabuleiro):
                     afundados +=1
 
     return afundados
+
+#exercício 6 
+
+def posicao_valida(navios,lin,col,ori,tam):
+    posicoes=define_posicoes(lin,col,ori,tam)
+    validado=True
+    for i in posicoes:
+        for j in navios.values():
+            for k in j:
+                for l in k:
+                    if l==i:
+                        validado=False
+        if i[0]>9 or i[0]<0 or i[1]>9 or i[1]<0:
+            validado=False
+    return validado
