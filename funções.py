@@ -35,3 +35,26 @@ def faz_jogada(tabuleiro, linha,coluna):
         tabuleiro[linha][coluna] = '-'
     
     return tabuleiro
+
+#exercício 4 
+
+def posiciona_frota(frota):
+    grid = [
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+      [0,0,0,0,0,0,0,0,0,0],
+  ]
+    for coordenadas_barco in frota.values():
+        for posicoes in coordenadas_barco:
+            for x,y in posicoes:
+                grid[x][y] = 1 
+
+
+    return grid
