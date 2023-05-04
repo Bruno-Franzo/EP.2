@@ -90,3 +90,62 @@ def posicao_valida(navios,lin,col,ori,tam):
         if i[0]>9 or i[0]<0 or i[1]>9 or i[1]<0:
             validado=False
     return validado
+
+
+#O JOGO
+
+PA=0
+NT=0
+CT=0
+SM=0
+
+frota = {
+    "porta-aviões":[],
+    "navio-tanque":[],
+    "contratorpedeiro":[],
+    "submarino": [],
+}
+while PA<1:
+    print('Insira as informações referentes ao navio porta-aviões que possui tamanho 4')
+    linha=int(input('linha: '))
+    coluna=int(input('coluna: '))
+    orientacao=input('[1] Vertical [2] Horizontal > ')
+    posicao = posicao_valida(frota,linha,coluna,orientacao,4)
+    if posicao==True:
+        PA+=1
+        frota=preenche_frota(frota,'porta-aviões',linha,coluna,orientacao,4)
+    else:
+        print('Esta posição não está válida!')
+while NT<2:
+    print('Insira as informações referentes ao navio navio-tanque que possui tamanho 3')
+    linha=int(input('linha: '))
+    coluna=int(input('coluna: '))
+    orientacao=input('[1] Vertical [2] Horizontal > ')
+    posicao = posicao_valida(frota,linha,coluna,orientacao,3)
+    if posicao==True:
+        NT+=1
+        frota=preenche_frota(frota,'navio-tanque',linha,coluna,orientacao,3)
+    else:
+        print('Esta posição não está válida!')
+while CT<3:
+    print('Insira as informações referentes ao navio contratorpedeiro que possui tamanho 2')
+    linha=int(input('linha: '))
+    coluna=int(input('coluna: '))
+    orientacao=input('[1] Vertical [2] Horizontal > ')
+    posicao = posicao_valida(frota,linha,coluna,orientacao,2)
+    if posicao==True:
+        CT+=1
+        frota=preenche_frota(frota,'contratorpedeiro',linha,coluna,orientacao,2)
+    else:
+        print('Esta posição não está válida!')
+while SM<4:
+    print('Insira as informações referentes ao navio submarino que possui tamanho 1')
+    linha=int(input('linha: '))
+    coluna=int(input('coluna: '))
+    posicao = posicao_valida(frota,linha,coluna,orientacao,1)
+    if posicao==True:
+        SM+=1
+        frota=preenche_frota(frota,'submarino',linha,coluna,orientacao,1)
+    else:
+        print('Esta posição não está válida!')
+print(frota)
