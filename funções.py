@@ -1,3 +1,4 @@
+#exercicio 1
 def define_posicoes(l,c,ori,tam):
     orientacao=ori
     posi0=[l,c]
@@ -16,6 +17,7 @@ def define_posicoes(l,c,ori,tam):
                     posicoes.append(posi0)
     return posicoes
 
+#exercicio 2
 def preenche_frota(frota, navio, linha, coluna, orientacao, tamanho):
     x = define_posicoes(linha,coluna,orientacao,tamanho)
     if navio not in frota:
