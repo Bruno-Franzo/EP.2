@@ -58,3 +58,20 @@ def posiciona_frota(frota):
 
 
     return grid
+
+#exercicio 5
+
+def afundados(frota,tabuleiro):
+    
+    afundados = 0
+    
+    for barco in frota.values():
+        for coordenadas in barco:
+            acertos = 0
+            for x,y in coordenadas:
+                if tabuleiro[x][y] == 'X':
+                    acertos+=1
+                if acertos == len(coordenadas):
+                    afundados +=1
+
+    return afundados
