@@ -1,6 +1,5 @@
 #exercicio 1
-def define_posicoes(l,c,ori,tam):
-    orientacao=ori
+def define_posicoes(l,c,orientacao,tam):
     posi0=[l,c]
 
     posicoes=[]
@@ -92,7 +91,7 @@ def posicao_valida(navios,lin,col,ori,tam):
     return validado
 
 
-#O JOGO
+#Exercício 7 
 
 PA=0
 NT=0
@@ -110,6 +109,10 @@ while PA<1:
     linha=int(input('linha: '))
     coluna=int(input('coluna: '))
     orientacao=input('[1] Vertical [2] Horizontal > ')
+    if orientacao == '1':
+        orientacao = 'vertical'
+    elif orientacao == '2':
+        orientacao = 'horizontal'
     posicao = posicao_valida(frota,linha,coluna,orientacao,4)
     if posicao==True:
         PA+=1
@@ -121,6 +124,10 @@ while NT<2:
     linha=int(input('linha: '))
     coluna=int(input('coluna: '))
     orientacao=input('[1] Vertical [2] Horizontal > ')
+    if orientacao == '1':
+        orientacao = 'vertical'
+    elif orientacao == '2':
+        orientacao = 'horizontal'
     posicao = posicao_valida(frota,linha,coluna,orientacao,3)
     if posicao==True:
         NT+=1
@@ -132,6 +139,10 @@ while CT<3:
     linha=int(input('linha: '))
     coluna=int(input('coluna: '))
     orientacao=input('[1] Vertical [2] Horizontal > ')
+    if orientacao == '1':
+        orientacao = 'vertical'
+    elif orientacao == '2':
+        orientacao = 'horizontal'
     posicao = posicao_valida(frota,linha,coluna,orientacao,2)
     if posicao==True:
         CT+=1
