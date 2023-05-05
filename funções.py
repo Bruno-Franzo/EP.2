@@ -197,7 +197,7 @@ frota_oponente = {
 
 grid_inimigo=posiciona_frota(frota_oponente)
 grid=posiciona_frota(frota)
-
+lista_ataques_inimigo=[]
 jogando=True
 lista_ataques=[]
 while jogando:
@@ -226,4 +226,22 @@ while jogando:
         print('A posição linha {} e coluna {} já foi informada anteriormente!' .format(ataque[0], ataque[1]))
     if afundados(frota_oponente,grid_inimigo)==10:
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
+        jogando=False
+
+#exercicio 9
+
+    import random
+    i=0
+    while i<1:
+        linha=random.randint(0,9)
+        coluna=random.randint(0,9)
+        ataque[0]=linha
+        ataque[1]=coluna
+        if ataque not in lista_ataques_inimigo:
+            lista_ataques_inimigo.append(ataque)
+            print('Seu oponente está atacando na linha {} e coluna {}'.format(ataque[0],ataque[1]))
+            grid=faz_jogada(grid,ataque[0],ataque[1])
+            i+=1
+    if afundados(frota,grid)==10:
+        print('Xi! O oponente derrubou toda a sua frota =(')
         jogando=False
