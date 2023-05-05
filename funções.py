@@ -199,34 +199,31 @@ grid_inimigo=posiciona_frota(frota_oponente)
 grid=posiciona_frota(frota)
 
 jogando=True
+lista_ataques=[]
 while jogando:
     print(monta_tabuleiros(grid, grid_inimigo))
-    lista_ataques=[]
-    inedito=True
-    while inedito:
-        ataque=[]
-        linvalido=True
-        while linvalido:
-            linha=int(input('linha ataque: '))
-            if linha<0 or linha>9:
-                print('Linha inválida!')
-            else:
-                linvalido=False
-                ataque.append(linha)
-        linvalido=True
-        while linvalido:
-            coluna=int(input('coluna ataque: '))
-            if coluna<0 or coluna>9:
-                print('coluna inválida!')
-            else:
-                linvalido=False
-                ataque.append(coluna)
-        if ataque not in lista_ataques:
-            inedito=False
-            lista_ataques.append(ataque)
-            grid_inimigo=faz_jogada(grid_inimigo,ataque[0],ataque[1])
+    ataque=[0]*2
+    linvalido=True
+    while linvalido:
+        linha=int(input('linha ataque: '))
+        if linha<0 or linha>9:
+            print('Linha inválida!')
         else:
-            print('A posição linha {} e coluna {} já foi informada anteriormente!' .format(ataque[0], ataque[1]))
+            linvalido=False
+            ataque[0]=linha
+    linvalido=True
+    while linvalido:
+        coluna=int(input('coluna ataque: '))
+        if coluna<0 or coluna>9:
+            print('coluna inválida!')
+        else:
+            linvalido=False
+            ataque[1]=coluna
+    if ataque not in lista_ataques:
+        lista_ataques.append(ataque)
+        grid_inimigo=faz_jogada(grid_inimigo,ataque[0],ataque[1])
+    elif ataque in lista_ataques:
+        print('A posição linha {} e coluna {} já foi informada anteriormente!' .format(ataque[0], ataque[1]))
     if afundados(frota_oponente,grid_inimigo)==10:
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
         jogando=False
